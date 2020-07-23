@@ -1,14 +1,8 @@
-{application, esaml,
- [
-  {description, "SAML for erlang"},
-  {vsn, "1.1"},
-  {registered, []},
-  {included_applications, []},
-  {applications, [kernel,
-                  stdlib,
-                  xmerl,
-                  ssl
-                 ]},
-  {mod, { esaml, []}},
-  {env, []}
- ]}.
+{application,esaml,
+             [{description,"SAML for erlang"},
+              {vsn,"1.1"},
+              {registered,[]},
+              {included_applications,[]},
+              {applications,[kernel,stdlib,xmerl,ssl]},
+              {env,[]},
+              {modules,[]}]}.
