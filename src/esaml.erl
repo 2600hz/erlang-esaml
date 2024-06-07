@@ -38,7 +38,7 @@
               logoutresp/0, response/0, sp/0, saml_record/0]).
 
 -type localized_string() :: string() | [{Locale :: atom(), LocalizedString :: string()}].
--type name_format() :: email | x509 | windows | krb | persistent | transient | unspecified.
+-type name_format() :: email | x509 | windows | krb | persistent | transient | unspecified | unknown.
 -type logout_reason() :: user | admin.
 -type status_code() :: success | request_error | response_error | bad_version | authn_failed | bad_attr | denied | bad_binding | unknown.
 -type version() :: string().
@@ -375,7 +375,7 @@ check_stale(A) ->
 %% @doc Parse and validate an assertion, returning it as a record
 %% @private
 -spec validate_assertion(AssertionXml :: #xmlElement{}, Recipient :: string(), Audience :: string()) ->
-                                {ok, #esaml_assertion{}} | {error, Reason :: term()}.
+          {ok, #esaml_assertion{}} | {error, Reason :: term()}.
 validate_assertion(AssertionXml, Recipient, Audience) ->
     case decode_assertion(AssertionXml) of
         {error, Reason} ->
@@ -744,4 +744,3 @@ to_boolean('true') -> 'true';
 to_boolean(<<"false">>) -> 'false';
 to_boolean("false") -> 'false';
 to_boolean('false') -> 'false'.
-
